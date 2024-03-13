@@ -1,8 +1,10 @@
-import './App.css';
+import "./App.css";
 import styled from "styled-components";
-import { Route, Routes } from 'react-router-dom';
-import Login from './pages/Login';
-import SignUp from './pages/SignUp';
+import { Route, Routes } from "react-router-dom";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
+import Chat from "./pages/Chat";
+import { UserProvider } from "./context/UserContext";
 
 const LayOutContainer = styled.div`
   display: flex;
@@ -14,31 +16,17 @@ const LayOutContainer = styled.div`
 
 function App() {
   return (
-    <LayOutContainer>
-      <Routes>
-        <Route path='/' element={<Login/>}/>
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/sign-up' element={<SignUp/>}/>
-        <Route path='/chat' element={<Login/>}/>
-        <Route path='/search' element={<SignUp/>}/>
-      </Routes>
-    </LayOutContainer>
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
+    <UserProvider>
+      <LayOutContainer>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/chat" element={<Chat />} />
+          <Route path="/search" element={<SignUp />} />
+        </Routes>
+      </LayOutContainer>
+    </UserProvider>
   );
 }
 

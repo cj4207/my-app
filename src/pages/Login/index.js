@@ -1,8 +1,8 @@
-import React, { useRef } from 'react';
-import { styled } from 'styled-components';
-import LoginInput from './components/LoginInput';
-import LoginSignButton from './components/LoginSignButton'
-import { Link } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from "react";
+import { styled } from "styled-components";
+import LoginInput from "./components/LoginInput";
+import LoginSignButton from "./components/LoginSignButton";
+import { Link } from "react-router-dom";
 
 const ContainerDiv = styled.div`
   display: flex;
@@ -37,43 +37,63 @@ const FindAccontLink = styled(Link)`
   color: black;
   font-size: 26px;
   font-weight: 500;
-`
+`;
 
 const WelcomeText = styled.p`
   font-weight: bold;
   font-size: 32px;
-  margin-bottom: 30px
-`
+  margin-bottom: 30px;
+`;
 const WelcomeSubText = styled.p`
   color: gray;
   font-size: 26px;
 `;
 
-function Login () {
-  const userId = useRef('')
-  const userPwd = useRef('')
-  console.log(userId, userPwd)
+function Login() {
+  const userId = useRef("");
+  const userPwd = useRef("");
+  const [showError, setShowError] = useState(false);
+
+  useEffect(() => {
+    if (showError) {
+      alert("id, pw 확인");
+      setShowError(false);
+    }
+  }, [showError]);
   return (
     <ContainerDiv>
       <WelcomeSection>
         <WelcomeText>Welcome to KakaoTalk</WelcomeText>
-        <WelcomeSubText>If you have a Kakao Account, <br/>
-        log in with your email or phone number.
+        <WelcomeSubText>
+          If you have a Kakao Account, <br />
+          log in with your email or phone number.
         </WelcomeSubText>
       </WelcomeSection>
       <InputSection>
-        <LoginInput placeholder={'Email or phone number'} type={'text'} value={userId}/>
-        <LoginInput placeholder={'Password'} type={'password'} value={userPwd}/>
+        <LoginInput
+          placeholder={"Email or phone number"}
+          type={"text"}
+          value={userId}
+        />
+        <LoginInput
+          placeholder={"Password"}
+          type={"password"}
+          value={userPwd}
+        />
       </InputSection>
       <ButtonSection>
-        <LoginSignButton type={'Login In'} userInfo={{id:userId, pwd:userPwd}}/>
-        <LoginSignButton type={'Sign Up'}/>
+        <LoginSignButton
+          type={"Login In"}
+          userInfo={{ id: userId, pwd: userPwd }}
+          setShowError={setShowError}
+        />
+        <LoginSignButton type={"Sign Up"} />
       </ButtonSection>
-      <FindAccontLink to={'search'}>
-          Find Kakao Account or Password
+      <FindAccontLink to={"search"}>
+        Find Kakao Account or Password
       </FindAccontLink>
     </ContainerDiv>
-  )
+  );
 }
 
 export default Login;

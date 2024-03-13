@@ -1,0 +1,59 @@
+[
+  {
+    "id": 1,
+    "userId": "test",
+    "password": "test",
+    "chats": [
+      {
+        "chatPartner": "KakaoTalk",
+        "message": "Please check My Kakao Account Info",
+        "unReadCount": 1,
+        "time": "21:22"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "userId": "cj4207",
+    "password": "1111",
+    "chats": [
+      {
+        "chatPartner": "KakaoTalk",
+        "message": "Hello",
+        "unReadCount": 1,
+        "time": "01:22"
+      },
+      {
+        "chatPartner": "Facebook",
+        "message": "반갑습니다",
+        "unReadCount": 1,
+        "time": "21:22"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "userId": "asdf",
+    "password": "1234",
+    "chats": [
+      {
+        "chatPartner": "Google",
+        "message": "Please check My Google Account Info",
+        "unReadCount": 1,
+        "time": "21:22"
+      },
+      {
+        "chatPartner": "Apple",
+        "message": "Please check My Apple Account Info",
+        "unReadCount": 2,
+        "time": "11:00"
+      },
+      {
+        "chatPartner": "KakaoTalk",
+        "message": "Please check My Kakao Account Info",
+        "unReadCount": 0,
+        "time": "15:03"
+      }
+    ]
+  }
+]

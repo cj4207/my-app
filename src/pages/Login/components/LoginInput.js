@@ -15,7 +15,6 @@ function LoginInput({placeholder, type, value}) {
 
   function handleOnChange (event) {
     value.current = event.target.value
-    console.log(event.target.value)
   }
 
   return(
